@@ -12,11 +12,18 @@ var doubled = numbers.map(number => {
   return number * 2;
 });
 
-console.log(doubledNumbers);
-console.log(doubled);
+// console.log(doubledNumbers);
+// console.log(doubled);
 
 // 以下途中処理
 var cars = [
   { type: "軽自動車", price: "安い" },
   { type: "高級車", price: "高い" }
 ];
+
+var prices = cars.map(function(car) {
+  // returnのしそびれに注意
+  return car.price;
+});
+
+console.log(prices);
