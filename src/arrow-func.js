@@ -16,11 +16,13 @@ const team = {
   members: ["太郎", "花子"],
   teamName: "スーパーチーム",
   teamSummary: function() {
-    var self = this;
+    // var self = this;
     return this.members.map(
-      function(member) {
-        // コールバック関数は別世界
-        return `${member}は${self.teamName}の所属です`;
+      // this === team
+      member => {
+        // コールバック関数は別世界、thisを普通の関数では使えない
+        //lexical this 構文的なthis
+        return `${member}は${this.teamName}の所属です`;
       }
       // .bind(this)
     );
