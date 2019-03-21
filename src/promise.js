@@ -6,14 +6,11 @@ const promise = new Promise((resolve, reject) => {
 });
 
 // 成功の時の処理
-promise.then(() => {
-  console.log("実行しました");
-});
-
-// 失敗の時の処理
-promise.catch(() => {
-  console.log("失敗しました");
-});
+promise
+  .then(() => console.log("実行しました"))
+  .then(() => console.log("ここも実行される"))
+  // catchは失敗時の処理
+  .catch(() => console.log("失敗しました"));
 
 // console.log(promise);
 // promiseとajaxは一緒にいるわけではない
