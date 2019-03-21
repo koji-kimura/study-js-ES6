@@ -1,22 +1,52 @@
+const testingTeam = {
+  lead: "典子",
+  tester: "隆",
+  // これで委譲する
+  //　動的プロパティ、中身が変数でも評価できる
+  [Symbol.iterator]: function*() {
+    yield this.lead;
+    yield this.tester;
+  }
+};
+
 const enginieeringTeam = {
+  testingTeam,
   size: 3,
   department: "開発部",
   lead: "太郎",
   manager: "花子",
-  engineer: "二郎"
+  engineer: "二郎",
+  [Symbol.iterator]: function*() {
+    yield this.lead;
+    yield this.manager;
+    yield this.engineer;
+    yield* this.testingTeam;
+  }
 };
 
 //社員名だけ見たい
 // どうやってみる？　generetor
-function* TeamIterator(team) {
-  // yeildは算出の意味
-  yield team.lead;
-  yield team.manager;
-  yield team.engineer;
-}
+// function* TeamIterator(team) {
+//   // yeildは算出の意味
+//   // yield team.lead;
+//   // yield team.manager;
+//   // yield team.engineer;
+//   // yield* team.testingTeam;
+//   // const testingTeamGenerator = testingTeamIterator(team.testingTeam);
+//   // // *をつけて委譲する
+//   // yield* testingTeamGenerator;
+//   // yield team.testingTeam.lead;
+// }
+
+// function* testingTeamIterator(team) {
+//   yield team.lead;
+//   yield team.tester;
+// }
 
 const names = [];
-for (let name of TeamIterator(enginieeringTeam)) {
+//一気にメンバーを取り出すには？
+// 委譲は「よろしく」って意味
+for (let name of enginieeringTeam) {
   names.push(name);
 }
 
