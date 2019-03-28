@@ -2,11 +2,20 @@ const team = {
   members: ["太郎", "花子"],
   teamName: "スーパーチーム",
   teamSummary: function() {
-    return this.members.map(function(member) {
+    // コールバックは別世界なのでthisで呼び出されない（コンテキストが違う）
+    // bindとか使ったり、一旦selfって変数使っていれたり
+    // return this.members.map(function(member) {
+    //   return `${member}は${this.teamName}の所属です`;
+    // });
+
+    //lexical this(構文的なthis)
+    return this.members.map(member => {
       return `${member}は${this.teamName}の所属です`;
     });
   }
 };
+
+console.log(team.teamSummary());
 
 // const numbers = [1, 2, 3];
 
