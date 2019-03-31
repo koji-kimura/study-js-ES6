@@ -11,8 +11,10 @@ function createAdminUser(user) {
   return user;
 }
 
-createAdminUser(new User(generateId()));
-
+let x = createAdminUser(new User(generateId()));
+let y = createAdminUser(new User(10));
+console.log(x);
+console.log(y);
 // function makeAjaxRequest(url, method = "GET") {
 //   //   if (!method) {
 //   //     method = "GET";
