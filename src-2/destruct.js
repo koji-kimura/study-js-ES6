@@ -1,18 +1,40 @@
-// コードがスッキリした他に順不同にできる
-function signup({ username, password, email, birthday, city }) {
-  //ここでユーザーを作成してDBに保存する
-}
+const points = [[4, 5], [10, 1], [0, 50]];
 
-// 引数をオブジェクト化する
-const user = {
-  username: "myusername",
-  password: "mypassword",
-  email: "test@aa.jp",
-  birthday: "1990/1/1",
-  city: "東京"
-};
+// 上の情報にxとyってキー情報を追加する
 
-signup(user);
+// 分割代入法について
+// 引数を分割代入
+let map = points.map(([ido, keido]) => {
+  // それをオブジェクトリテラルで省略形で記載する
+  return { ido, keido };
+});
+
+console.log(map);
+
+//まずはマップを使う
+// let x = points.map(([x, y]) => {
+//   // const x = point[0];
+//   // const y = point[1];
+//   return { x, y };
+// });
+
+// console.log(x);
+
+// // コードがスッキリした他に順不同にできる
+// function signup({ username, password, email, birthday, city }) {
+//   //ここでユーザーを作成してDBに保存する
+// }
+
+// // 引数をオブジェクト化する
+// const user = {
+//   username: "myusername",
+//   password: "mypassword",
+//   email: "test@aa.jp",
+//   birthday: "1990/1/1",
+//   city: "東京"
+// };
+
+// signup(user);
 // signup("myusername", "mypassword", "test@aa.jp", "1990/1/1", "東京");
 
 // const google = {
