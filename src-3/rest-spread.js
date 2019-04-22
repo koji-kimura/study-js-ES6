@@ -1,6 +1,7 @@
 const MathLibrary = {
-  calculateProduct(a, b) {
-    return this.multiply(a, b);
+  // 引数複数会ったときどうする？
+  calculateProduct(...rest) {
+    return this.multiply(...rest);
     // return a * b;
   },
   multiply(a, b) {
