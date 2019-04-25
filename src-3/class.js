@@ -10,7 +10,7 @@ class Car {
 
 class Toyota extends Car {
   constructor(options) {
-    super(options); // Carのコンストラクタ
+    super(options);
     this.color = options.color;
   }
   hank() {
